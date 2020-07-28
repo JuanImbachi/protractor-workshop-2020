@@ -35,14 +35,14 @@ describe('Buy a t-shirt', () => {
     await addressStep.goToCheckout();
     await(browser.sleep(3000));
 
-    await shippingStep.check();
+    await shippingStep.acceptTerms();
     await(browser.sleep(3000));
 
-    await orderSummaryPage.goToCheckout();
+    await shippingStep.goToCheckOut();
     await(browser.sleep(3000));
-    await bankPaymentPage.goToBankPayment();
+    await orderSummaryPage.goToBankPayment();
     await(browser.sleep(3000));
-    await paymentStep.goToConfirmOrder();
+    await bankPaymentPage.goToConfirmOrder();
     await(browser.sleep(3000));
 
     await paymentStep.orderComplete();
