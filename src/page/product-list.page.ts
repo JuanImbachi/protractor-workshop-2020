@@ -1,4 +1,4 @@
-import { $, ElementFinder } from 'protractor';
+import { $, ElementFinder, browser, ExpectedConditions } from 'protractor';
 
 export class ProductListPage {
   private productList: ElementFinder;
@@ -8,6 +8,7 @@ export class ProductListPage {
   }
 
   public async selectAProduct(): Promise<void> {
+    await browser.wait(ExpectedConditions.elementToBeClickable(this.productList), 3000);
     await this.productList.click();
   }
 }
