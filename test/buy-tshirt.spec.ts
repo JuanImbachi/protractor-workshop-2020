@@ -3,9 +3,7 @@ import { MenuContentPage, ProductAddedModalPage, AddressStep, BankPaymentPage,
    OrderSummaryPage, PaymentStep, ProductListPage, ShippingStep, SignInStep, SummaryStep } from '../src/page';
 
 describe('Buy a t-shirt', () => {
-  beforeEach(() => {
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
-  });
+
   const menuContentPage: MenuContentPage = new MenuContentPage();
   const productAddedModalPage: ProductAddedModalPage = new ProductAddedModalPage();
   const addressStep: AddressStep = new AddressStep();
