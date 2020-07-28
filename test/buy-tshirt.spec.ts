@@ -3,9 +3,7 @@ import { MenuContentPage, ProductAddedModalPage, AddressStep, BankPaymentPage,
    OrderSummaryPage, PaymentStep, ProductListPage, ShippingStep, SignInStep, SummaryStep } from '../src/page';
 
 describe('Buy a t-shirt', () => {
-  beforeEach(() => {
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000;
-  });
+
   const menuContentPage: MenuContentPage = new MenuContentPage();
   const productAddedModalPage: ProductAddedModalPage = new ProductAddedModalPage();
   const addressStep: AddressStep = new AddressStep();
@@ -40,11 +38,12 @@ describe('Buy a t-shirt', () => {
 
     await shippingStep.goToCheckOut();
     await(browser.sleep(3000));
-    await orderSummaryPage.goToBankPayment();
+    await paymentStep.proceedToPayment();
     await(browser.sleep(3000));
     await bankPaymentPage.goToConfirmOrder();
     await(browser.sleep(3000));
 
-    await paymentStep.orderComplete();
+    await expect(orderSummaryPage.titleExpected())
+      .toBe('Your order on My Store is complete.');
   });
 });
