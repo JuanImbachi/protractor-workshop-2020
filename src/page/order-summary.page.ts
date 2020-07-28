@@ -1,13 +1,14 @@
 import { $, ElementFinder } from 'protractor';
 
 export class OrderSummaryPage {
-  private bankPayment: ElementFinder;
+  private expectedElement: ElementFinder;
 
   constructor () {
-    this.bankPayment = $('#HOOK_PAYMENT > div:nth-child(1) > div > p > a');
+    this.expectedElement = $('#center_column > div > p > strong');
   }
 
-  public async goToBankPayment(): Promise<void> {
-    await this.bankPayment.click();
+  public async titleExpected(): Promise<String> {
+    const title = await this.expectedElement.getText();
+    return title;
   }
 }

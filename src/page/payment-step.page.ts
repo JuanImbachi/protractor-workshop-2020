@@ -1,14 +1,13 @@
 import { $, ElementFinder } from 'protractor';
 
 export class PaymentStep {
-  private expectedElement: ElementFinder;
+  private paymentOpt: ElementFinder;
 
   constructor () {
-    this.expectedElement = $('#center_column > div > p > strong');
+    this.paymentOpt = $('#HOOK_PAYMENT > div:nth-child(1) > div > p > a');
   }
 
-  public async orderComplete(): Promise<void> {
-    await expect(this.expectedElement.getText())
-      .toBe('Your order on My Store is complete.');
+  public async proceedToPayment(): Promise<void> {
+    await this.paymentOpt.click();
   }
 }
