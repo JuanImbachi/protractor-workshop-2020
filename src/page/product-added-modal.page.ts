@@ -5,10 +5,9 @@ export class ProductAddedModalPage {
 
   constructor () {
     // this.addToCart = $('[style*="display: block;"] .button-container > a');
-    // I preferred to use the id of a div instead of use the value of a property like 'style'.
-    // I consider is easier to identify the element with the ID of the div and the class name
-    // where the button is.
-    this.addToCart = $('#layer_cart .button-container');
+    // The value of the title property is unique in the view.
+    // So, makes easier to find the element.
+    this.addToCart = $('a[title="Proceed to checkout"]');
   }
 
   public async addProductToCart(): Promise<void> {
