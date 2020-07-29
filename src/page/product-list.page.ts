@@ -4,7 +4,9 @@ export class ProductListPage {
   private productList: ElementFinder;
 
   constructor () {
-    this.productList = $('#center_column a.button.ajax_add_to_cart_button.btn.btn-default');
+  // The class of the element we want to click on is so specific
+  // that we can use it to identify the element on the whole page.
+    this.productList = $('a.button.ajax_add_to_cart_button.btn.btn-default');
   }
 
   public async selectAProduct(): Promise<void> {
