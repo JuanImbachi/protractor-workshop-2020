@@ -6,7 +6,10 @@ export class SignInStep {
   private passwordField: ElementFinder;
 
   constructor () {
-    this.signInBtn = $('#SubmitLogin > span');
+    // this.signInBtn = $('#SubmitLogin > span');
+    // I will only modify the first selector because with the ID is enough.
+    // The email and password selectors will not change because they are already using their IDs.
+    this.signInBtn = $('#SubmitLogin');
     this.emailField = $('#email');
     this.passwordField = $('#passwd');
   }

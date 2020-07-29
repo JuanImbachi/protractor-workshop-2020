@@ -26,9 +26,8 @@ describe('Buy a t-shirt', () => {
 
     await addressStep.goToCheckout();
 
-    await shippingStep.acceptTerms();
+    await shippingStep.acceptAndCheckout();
 
-    await shippingStep.goToCheckOut();
     await paymentStep.proceedToPayment();
     await bankPaymentPage.goToConfirmOrder();
 
