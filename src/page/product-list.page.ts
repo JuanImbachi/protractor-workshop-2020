@@ -21,8 +21,8 @@ export class ProductListPage {
     ).first();
   }
 
-  public selectProduct (productName: string) {
+  public async selectProduct (productName: string) {
     const productSearched = this.findByProduct(productName);
-    productSearched.$('[itemprop="image"').click();
+    await productSearched.$('[itemprop="image"').click();
   }
 }
