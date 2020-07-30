@@ -14,13 +14,11 @@ export class ProductListPage {
   }
 
   private findByProduct(productName: string) {
-
     return this.products.filter(product =>
       product.$('.product-name').getText().then((actualProduct) => {
         return actualProduct === productName;
       })
     ).first();
-
   }
 
   public selectProduct (productName: string) {
