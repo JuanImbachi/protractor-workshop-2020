@@ -4,9 +4,6 @@ export class ProductAddedModalPage {
   private addToCart: ElementFinder;
 
   constructor () {
-    // this.addToCart = $('[style*="display: block;"] .button-container > a');
-    // The value of the title property is unique in the view.
-    // So, makes easier to find the element.
     this.addToCart = $('a[title="Proceed to checkout"]');
   }
 
