@@ -23,6 +23,7 @@ export class ProductListPage {
 
   public async selectProduct (productName: string) {
     const productSearched = this.findByProduct(productName);
-    await productSearched.$('[itemprop="image"').click();
+    await browser.wait(ExpectedConditions.elementToBeClickable(productSearched), 3000);
+    await productSearched.$('[itemprop="image"]').click();
   }
 }
