@@ -20,7 +20,7 @@ describe('Should open the shopping page', () => {
       const summaryStep: SummaryStep = new SummaryStep();
 
       await menuContentPage.goToTShirtMenu();
-      await productListPage.selectAProduct();
+      await productListPage.selectProduct('Faded Short Sleeve T-shirts');
       await productAddedModalPage.addProductToCart();
       await summaryStep.goToCheckout();
 
