@@ -1,4 +1,4 @@
-import { ElementFinder, element, by, browser, ExpectedConditions } from 'protractor';
+import { ElementFinder, element, by, browser, ExpectedConditions, $ } from 'protractor';
 
 export class PersonalInformationPage {
   private firstNameField: ElementFinder;
@@ -39,30 +39,31 @@ export class PersonalInformationPage {
     await this.firstNameField.sendKeys(userData.firstName);
     await this.lastNameField.sendKeys(userData.lastName);
 
-    this.sexChkBox = element(by.css(`input[name="sex"][value="${userData.sex}"]`));
+    this.sexChkBox = $(`input[name="sex"][value="${userData.sex}"]`);
     await this.sexChkBox.click();
 
-    this.experienceChkBox = element(by.css(`input[name="exp"][value="${userData.experience}"]`));
+    this.experienceChkBox = $(`input[name="exp"][value="${userData.experience}"]`);
     await this.experienceChkBox.click();
 
     for (const prof of userData.profession) {
-      this.professionChkbox = element(by.css(`input[name="profession"][value="${prof}"]`));
+      this.professionChkbox = $(`input[name="profession"][value="${prof}"]`);
       await this.professionChkbox.click();
     }
 
     for (const tool of userData.tools) {
-      this.toolsChkBox = element(by.css(`input[name="tool"][value="${tool}"]`));
+      this.toolsChkBox = $(`input[name="tool"][value="${tool}"]`);
       await this.toolsChkBox.click();
     }
 
-    this.continentCmBox = element(by.css('select[name="continents"]'))
-    .element(by.cssContainingText('option', userData.continent));
+    this.continentCmBox = $('select[name="continents"]')
+      .element(by.cssContainingText('option', userData.continent));
 
     await this.continentCmBox.click();
 
     for (const command of userData.commands) {
-      this.commandsCmBox = element(by.css('select[name="selenium_commands"]'))
-      .element(by.cssContainingText('option', command));
+      this.commandsCmBox = $('select[name="selenium_commands"]')
+        .element(by.cssContainingText('option', command));
+
       await this.commandsCmBox.click();
     }
   }
